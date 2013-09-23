@@ -1,0 +1,89 @@
+<head>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<link href="fonts/Average.css" rel='stylesheet' type='text/css'>
+	<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="iframe">
+	<h1> Wiring </h1>
+	<h3> Breadboard </h3>
+	1. Connect the ground and the +5V of the top and bottom of the breadboard
+	<p/>
+	2. Place the 74LS245 IC on the center of the board evenly spaced out (Most left 74LS245 will be refered to IC 1 while the most right 74LS245 will be refered to IC 4)
+	<br>
+	<img src="images/step3/1.jpg" width="500"/>
+	<p/>
+	3. Connect pin 2-9 of IC 1 to the coresponding pin 2-9 of IC 2.
+	<br>
+	<img src="images/step3/2.jpg" width="500"/>
+	<p/>
+	4. Repeat step 3 such that IC 2 will be connected to IC 3, and IC 3 with IC 4 in the same manner.
+	<br>
+	<img src="images/step3/3.jpg" width="500"/>
+	<br>
+	<img src="images/step3/4.jpg" width="500"/>
+	<p/>
+	5. Connect pin 10 of all the 74LS245 to ground
+	<br>
+	<img src="images/step3/5.jpg" width="500"/>
+	<p/>
+	6. Connect pin 1 to pin 20 for each 74LS245
+	<br>
+	<img src="images/step3/6.jpg" width="500"/>
+	<p/>
+	7. Connect pin 20 to +5V for each 74LS245
+	<br>
+	<img src="images/step3/7.jpg" width="500"/>
+	<p/>
+	
+	<h3> After taping breadboard to bottom of stage </h3>
+	1. Thread all four wires from the bottom-most row into the corner hole and wire it accordingly.
+	<br>(Do one at a time to keep track of which wire is which)
+	<br>
+	<img src="images/tutorial/13.jpg" width="500"/>
+	<img src="images/tutorial/14.jpg" width="500"/>
+	<p/>
+	2. Repeat Step 3 for the second-last row from the bottom using the same hole.
+	<br>
+	<img src="images/tutorial/15.jpg" width="500"/>
+	<img src="images/tutorial/16.jpg" width="500"/>
+	<p/>
+	3. Wire through the blue wires at the bottom-most row through the hole to the left of the one just used.
+	<br>
+	<img src="images/tutorial/17.jpg" width="500"/>
+	<img src="images/tutorial/18.jpg" width="500"/>
+	<p/>
+	4. Repeat Step 6 using the same hole for the second-last row of wires at the back.
+	<br>
+	<img src="images/tutorial/19.jpg" width="500"/>
+	<img src="images/tutorial/20.jpg" width="500"/>
+	<p/>
+	5. Repeat 5 and 6 for the next two rows above the ones just completed.
+	<br>
+	<img src="images/tutorial/21.jpg" width="500"/>
+	<p/>
+	6. Thread the red wires  on the last sides through the final hole. Wire them accordingly.
+	<br>
+	<img src="images/tutorial/22.jpg" width="500"/>
+	<p/>
+	7. Tape the Arduino to the bottom of the stage below the breadboard. Then attach and tape down the power cable.
+	<br>
+	<img src="images/tutorial/23.jpg" width="500"/>
+	<img src="images/tutorial/24.jpg" width="500"/>
+	<p/>
+	8. To send a HIGH or LOW to the LS245, wire pins 2-9 on the Arduino to the pins on the LS245 in reverse order
+	<br>(e.g. Pin 2 on Arduino wires to Pin 9 on LS245)
+	<br>
+	<img src="images/tutorial/25.jpg" width="500"/>
+	<p/>
+	9. Wire the rest of the wires, i.e. Enablers, Ground, VCC, to the Analog pins as shown.
+	<br> Arduino pin 2 will connect to pin 10 on the first 74LS245 and the following pins connect to the next pins on the IC chip until pin 9 on the Arduino is connected to pin 2 on the IC chip. 
+	<br> Connect analog pin A0 to the first (most left) 74LS245 enabler pin and the following analog pins will be connected to the next 3 eneablers of the 74LS245.
+	<br>
+	<img src="images/tutorial/26.jpg" width="500"/>
+	<p/>
+</div>
+</body>

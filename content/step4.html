@@ -1,0 +1,65 @@
+<head>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<link href="fonts/Average.css" rel='stylesheet' type='text/css'>
+	<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="iframe">
+
+	<h1> Coding </h1>
+	<h3> Base LED Cube Code</h3>
+	</div>
+	<pre>
+	void setup() {
+	  //set digital pin 2-9 to be outputs
+	  for (int i=2; i<10; i++) {
+		pinMode(i, OUTPUT);
+	  }
+	  //set analog pin A0 - A3 to be outputs
+	  for (int i=14; i<18; i++) {
+		pinMode(i, OUTPUT);
+	  }
+	}
+	void loop(){
+	  light(1, 1, 1, 10); //enable layer 1, row 1, col 1, delay 10ms
+	}
+	void light(int layer, int row, int col, int wait){
+	  low(); //default reset all outputs
+	  row++; //set the row number to match pin number
+	  col=10-col; //set the column number to match pin number
+	  layer = layer + 13; //set the layer number to match pin number
+	  digitalWrite(layer, LOW); //enable designated 74LS245
+	  digitalWrite(row, LOW); //send LOW voltage to coresponding negative row
+	  digitalWrite(col, HIGH); //send HIGH voltage to coresponding positive column
+	  delay(wait);
+	}
+	void low(){
+	  //disable negative terminals by setting them to HIGH
+	  for (int i=2; i<6; i++) {
+		digitalWrite(i, HIGH);
+	  }
+	  //disable positive terminals by setting them to LOW
+	  for (int i=6; i<10; i++) {
+		digitalWrite(i, LOW);
+	  }
+	  //disable all 74LS245 Enablers
+	  for (int i=14; i<18; i++) {
+		digitalWrite(i, HIGH);
+	  }
+	}
+	</pre>
+	<div id="iframe">
+	<p/>
+	This code will set digital pin 2-9 on the Arduino as well as pin A0-A3 to be outputs. There is also a predefined function called light, and low. When the function LOW is called, it resets all of the outputs to their default state so that no LEDs will be on. The function light will take the parameter of the specific layer, row, column, and delay wait time passed to run a set of code that will reset all the LEDs with the low function and then set the values to the coresponding pin on the Arduino. It will take the new values and be used to enable the correct layer, row, and column for the specific LED. It will then apply a wait amount that is specified in the parameter. The example code in the void loop() function will run the light function to turn on the LED on layer 1, row 1, column 1, with a delay of 10ms before running the next piece of code.
+	<br/>
+	<br/>
+	<a href="Arduino Code/Dynamic/dynamic1.ino"> Dynamic Code 1 </a> <a href="video/1.mp4">[Demo]</a><br/>
+	<a href="Arduino Code/Dynamic/dynamic2.ino"> Dynamic Code 2 </a> <a href="video/2.mp4">[Demo]</a><br/>
+	<a href="Arduino Code/Static/Static H.ino"> Static Letter H </a> <a href="video/h.mp4">[Demo]</a><br/>
+	<a href="Arduino Code/Static/Static I.ino"> Static Letter I </a> <a href="video/i.mp4">[Demo]</a><br/>
+	<a href="Arduino Code/ISU/ISU.ino"> ISU (Light Sensor) </a> <a href="video/isu.mp4">[Demo]</a><br/>
+	</div>
+</body>

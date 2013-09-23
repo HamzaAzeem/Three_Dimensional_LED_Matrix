@@ -1,0 +1,51 @@
+<head>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<link href="fonts/Average.css" rel='stylesheet' type='text/css'>
+	<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="iframe">
+
+	<h1>Theory of Operation</h1>
+	<h3>General Theory</h3>
+	The cube consists of 4 layers of LEDs. Each layer consists of 4 rows and 4 columns of LEDs. The negative terminals (cathode) of the LEDs are connected into rows while the positive terminals (anodes) are connected into columns forming a layer. 
+	<p/>
+	Each individual LED can be turned on by providing a high voltage to the coresponding anode column and a low voltage to the coresponding cathode row, while all the other rows and columns are given an opposite voltage.
+	<p/>
+	Each layer of LEDs is connected to seperate 74LS245 IC. Pin 1 and 20 are connected to +5V and pin 10 is connected to ground. Pin 19 is the enabler and pins 2-9 are the input pins which has a coresponding output pin from pins 11-18.The positive columns are to be connected to 4 of the outputs (pin 15-18) of the chip and the negative rows are connected ot the next 4 outputs (pin 11-14). 
+	<p/>
+	The layers which will be active are controlled by 74LS245 ICs. Each layer is connected to a coresponding 74LS245 IC on a breadboard. The enabler of the 74LS245 controls if the chip will be "turned on/off." The Arduino board will provide the coresponding layer's 74LS245 a low voltage to the enabler to enable the chip and layer while all other layers' coresponding 74LS245 enablers are provided a high voltage to disable them, thus allowing the independant control of an individual layer
+	<p/>
+	The Arduino board digital I/O pins 2-5 will be used to control the LEDs negative terminals, pins 6-9 will be used to control the LEDs positive terminals and the analog pins 0-3 is used to control the enablers of each LED layer.
+	<p/>
+	<h3>Programming Theory</h3>
+	When a code is uploaded to an Arduino board, it is stored in the built-in memory and runs when the board is powered. To program the Arduino board, the Arduino software is used to program and upload the the code to the board when connected with the USB cable. 
+	<p/>
+	The first step in coding the program is to setup the inputs and outputs of the board.
+	<p/>
+	Example:
+	<br>
+	void setup() { <br>
+	  for (int i=2; i<10; i++) {<br>
+	  pinMode(i, OUTPUT);<br>
+	  }<br>
+	  pinMode(14, OUTPUT);<br>
+	}
+	<p>
+	The "void setup()" function is where you initialize variables and pin modes which is run only once after each powerup or reset of the Arduino board.
+	<p>
+	A "for loop" is used to loop the code within for a specific number of times. The variable "i" is incremented with each cycle until the variable reaches the specified condition. We utilize this variable to control the pins output with the pinMode(i, OUTPUT) method, where the parameter variable "i" is an integer that corresponds to the pin on the Arduino board. The pins can also be configured to be inputs by replacing "OUTPUT" with "INPUT" to the pinMode parameters to look like "pinMode(i, INPUT)".
+	<p>
+	delay(10) function is used to provide a pause in the operation for 10 milliseconds. (The 10 can be replaced with different values)
+	<p>
+	digitalWrite(i, LOW) is used to provide a LOW output to the pin "i".
+	<br>
+	digitalWrite(i, HIGH) is used to provide a HIGH output to the pin "i".
+
+</div>
+	
+	
+</body>
